@@ -4,6 +4,12 @@ import java.util.List;
 
 import se.lexicon.simon.school.management.assignment.models.Student;
 
+/**
+ * 
+ * @author Mattias Hansson
+ *
+ */
+
 public class StudentDaoList implements StudentDao{
 
 	private static List<Student> student;

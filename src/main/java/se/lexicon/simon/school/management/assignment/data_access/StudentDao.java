@@ -2,7 +2,13 @@ package se.lexicon.simon.school.management.assignment.data_access;
 
 import java.util.List;
 
+
 import se.lexicon.simon.school.management.assignment.models.Student;
+/**
+ * 
+ * @author Mattias Hansson
+ *
+ */
 
 public interface StudentDao {
 	
