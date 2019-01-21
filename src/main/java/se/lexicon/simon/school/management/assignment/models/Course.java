@@ -3,6 +3,11 @@ package se.lexicon.simon.school.management.assignment.models;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * 
+ * @author Simon Elbrink
+ *
+ */
 public class Course {
 
 	
