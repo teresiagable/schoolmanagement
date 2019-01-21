@@ -12,11 +12,12 @@ import se.lexicon.simon.school.management.assignment.models.Course;
  */
 public class CourseDaoList implements CourseDao{
 
-	//private static List<Course> courses
+		private static List<Course> courses;
 	
 	@Override
 	public Course saveCourse(Course course) {
-		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 
