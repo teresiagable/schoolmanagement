@@ -9,8 +9,6 @@ import java.util.List;
  *
  */
 public class Course {
-
-	
 		
 		private int id;
 		private String courseName;
@@ -18,6 +16,15 @@ public class Course {
 		private int weekDuration;
 		private List<Student> students;
 		
+		public Course(int id, String courseName, LocalDate startDate, int weekDuration, List<Student> students) {
+			super();
+			this.id = id;
+			this.courseName = courseName;
+			this.startDate = startDate;
+			this.weekDuration = weekDuration;
+			this.students = students;
+		}
+
 		public void register (Student student) {
 			//implement register
 		}
