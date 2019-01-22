@@ -1,5 +1,6 @@
 package se.lexicon.simon.school.management.assignment.data_access;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import se.lexicon.simon.school.management.assignment.models.Student;
@@ -10,7 +11,7 @@ import se.lexicon.simon.school.management.assignment.models.Student;
  *
  */
 
-public class StudentDaoList implements StudentDao{
+public class StudentDaoList implements StudentDao {
 
 	private static List<Student> student;
 
@@ -28,8 +29,13 @@ public class StudentDaoList implements StudentDao{
 
 	@Override
 	public List<Student> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Student> returnList = new ArrayList<>();
+
+		for (Student s : student) {
+			if (s.getName().toLowerCase().contains(name.toLowerCase()))
+				returnList.add(s);
+		}
+		return returnList;
 	}
 
 	@Override
