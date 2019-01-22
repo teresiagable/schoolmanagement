@@ -26,11 +26,12 @@ public class Course {
 		}
 
 		public void register (Student student) {
-			//implement register
+			//only add students once
+			if(!students.contains(student)) students.add(student);
 		}
 		
 		public void unregister( Student student) {
-			//implement unregister
+			students.remove(student);
 		}
 		
 		public int getId() {
