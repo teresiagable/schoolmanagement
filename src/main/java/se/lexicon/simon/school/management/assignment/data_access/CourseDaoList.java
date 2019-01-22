@@ -10,15 +10,20 @@ import se.lexicon.simon.school.management.assignment.models.Course;
  * @author Simon Elbrink
  *
  */
-public class CourseDaoList implements CourseDao{
+public class CourseDaoList implements CourseDao {
 
-		private static List<Course> courses;
-	
+	private static List<Course> courses;
+
 	@Override
 	public Course saveCourse(Course course) {
-		
-		
-		return null;
+
+		if (!courses.contains(course)) {
+			courses.add(course);
+		} else {
+			System.out.println(course + " Allready Exists");
+		}
+
+		return course;
 	}
 
 	@Override
@@ -34,7 +39,7 @@ public class CourseDaoList implements CourseDao{
 	}
 
 	@Override
-	public List<Course> fintByDate(LocalDate date) {
+	public List<Course> findByDate(LocalDate date) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -47,8 +52,11 @@ public class CourseDaoList implements CourseDao{
 
 	@Override
 	public boolean removeCourse(Course course) {
-		// TODO Auto-generated method stub
-		return false;
+		if(courses.contains(course)) {
+			return courses.remove(course);
+		} else {
+			return false;
+		}
 	}
 
 	

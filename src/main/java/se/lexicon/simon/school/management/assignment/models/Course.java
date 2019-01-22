@@ -16,6 +16,13 @@ public class Course {
 		private int weekDuration;
 		private List<Student> students;
 		
+		/**
+		 * 
+		 * @param id
+		 * @param courseName
+		 * @param startDate
+		 * @param weekDuration
+		 */
 		public Course(int id, String courseName, LocalDate startDate, int weekDuration) {
 			super();
 			this.id = id;
@@ -63,8 +70,11 @@ public class Course {
 		public void setStudents(List<Student> students) {
 			this.students = students;
 		}
-		
-		
+				
+		@Override
+		public String toString() {
+			return "\nID:" + this.id + " \tCourse: " + this.courseName + " \tStartDate: " + this.startDate + " \tDuration in Week: " + this.weekDuration;
+		}
 		
 		
 
