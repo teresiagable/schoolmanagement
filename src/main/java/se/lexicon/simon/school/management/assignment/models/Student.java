@@ -11,13 +11,13 @@ public class Student {
 		 private int id;
 		 private String name;
 		 private String email;
-		 private String addres;
+		 private String address;
 		 
-		 Student(int id, String name, String email, String addres){
+		 Student(int id, String name, String email, String address){
 			 this.id = id;
 			 this.name = name;
 			 this.email = email;
-			 this.addres = addres;
+			 this.address = address;
 		 }
 
 		 
@@ -39,11 +39,11 @@ public class Student {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public String getAddres() {
-			return addres;
+		public String getAddress() {
+			return address;
 		}
-		public void setAddres(String addres) {
-			this.addres = addres;
+		public void setAddress(String address) {
+			this.address = address;
 		}
 		 
 		
