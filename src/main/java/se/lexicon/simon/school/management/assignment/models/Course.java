@@ -16,14 +16,13 @@ public class Course {
 		private int weekDuration;
 		private List<Student> students;
 		
-		public Course(int id, String courseName, LocalDate startDate, int weekDuration, List<Student> students) {
+		public Course(int id, String courseName, LocalDate startDate, int weekDuration) {
 			super();
 			this.id = id;
 			this.courseName = courseName;
 			this.startDate = startDate;
 			this.weekDuration = weekDuration;
-			this.students = students;
-		}
+			}
 
 		public void register (Student student) {
 			//only add students once
