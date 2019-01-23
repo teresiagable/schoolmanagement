@@ -19,20 +19,20 @@ public static void main(String[] args) {
 		case 2:
 			theManager.findCourse();
 			break;
-		case 3:
-			Product prod = theManager.doPurchase();
-			if (prod != null)
-				theManager.doUse(prod);
-			break;
-		case 4:
-			theManager.doExamine();
-			break;
-		case 5:
-			theManager.cashOut();
-			break;
-		case 6:
-			theManager.leave();
-			break;
+//		case 3:
+//			Product prod = theManager.doPurchase();
+//			if (prod != null)
+//				theManager.doUse(prod);
+//			break;
+//		case 4:
+//			theManager.doExamine();
+//			break;
+//		case 5:
+//			theManager.cashOut();
+//			break;
+//		case 6:
+//			theManager.leave();
+//			break;
 		default:
 			break;
 		}

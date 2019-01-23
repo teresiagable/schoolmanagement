@@ -43,7 +43,7 @@ public class SchoolManagement {
 			break;
 		case 2:
 			String name = HelpMe.readStringfromUser("Enter name of the student:");
-			printStudent(studentList.findByName(name);
+			printStudent(studentList.findByName(name));
 			break;
 		default:
 			break;
