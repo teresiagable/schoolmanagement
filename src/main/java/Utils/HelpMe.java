@@ -1,5 +1,6 @@
 package Utils;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class HelpMe {
@@ -114,6 +115,10 @@ public class HelpMe {
 		String input = scanner.nextLine();
 		return input;
 
+	}
+
+	public static LocalDate readDatefromUser(String string) {
+		return LocalDate.now();
 	}
 
 }

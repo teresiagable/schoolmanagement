@@ -3,7 +3,7 @@ package school.management.assignment.data_access;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.lexicon.simon.school.management.assignment.models.Course;
+import models.Course;
 
 public class CourseDaoListTest {
 

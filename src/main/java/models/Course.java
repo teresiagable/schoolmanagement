@@ -1,4 +1,4 @@
-package se.lexicon.simon.school.management.assignment.models;
+package models;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,9 +1,9 @@
-package se.lexicon.simon.school.management.assignment.data_access;
+package data_access;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import se.lexicon.simon.school.management.assignment.models.Course;
+import models.Course;
 
 /**
  * 

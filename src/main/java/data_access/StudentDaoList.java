@@ -1,29 +1,26 @@
-package se.lexicon.simon.school.management.assignment.data_access;
+package data_access;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import se.lexicon.simon.school.management.assignment.models.Student;
+import models.Student;
 
-/**
- * 
- * @author Mattias Hansson
- *
- */
 
 public class StudentDaoList implements StudentDao {
 
-	private static List<Student> student;
+	private static List<Student> students;
 
 	@Override
 	public Student saveStudent(Student student) {
-		// TODO Auto-generated method stub
+		students.add(student);
 		return null;
 	}
 
 	@Override
 	public Student findByEmail(String email) {
-		// TODO Auto-generated method stub
+		for (Student student : students) {
+			if(student.getEmail().equalsIgnoreCase(email)) return student;
+		}
 		return null;
 	}
 
@@ -31,7 +28,7 @@ public class StudentDaoList implements StudentDao {
 	public List<Student> findByName(String name) {
 		List<Student> returnList = new ArrayList<>();
 
-		for (Student s : student) {
+		for (Student s : students) {
 			if (s.getName().toLowerCase().contains(name.toLowerCase()))
 				returnList.add(s);
 		}
@@ -40,19 +37,21 @@ public class StudentDaoList implements StudentDao {
 
 	@Override
 	public Student findById(int id) {
-		// TODO Auto-generated method stub
+		for (Student student : students) {
+			if (student.getId()==id)
+				return student;
+		}
 		return null;
 	}
 
 	@Override
 	public List<Student> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return students;
 	}
 
 	@Override
 	public boolean deleteStudent(Student student) {
-		// TODO Auto-generated method stub
+		students.remove(student);
 		return false;
 	}
 }
