@@ -6,9 +6,9 @@ import java.util.List;
 import models.Student;
 
 
-public class StudentDaoList implements StudentDao {
+public class StudentList implements StudentDao {
 
-	private static List<Student> students;
+	private static List<Student> students = new ArrayList<>();
 
 	@Override
 	public Student saveStudent(Student student) {

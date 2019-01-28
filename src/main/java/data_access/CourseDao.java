@@ -5,11 +5,6 @@ import java.util.List;
 
 import models.Course;
 
-/**
- * 
- * @author Simon Elbrink
- *
- */
 public interface CourseDao {
 
 	Course saveCourse(Course course);

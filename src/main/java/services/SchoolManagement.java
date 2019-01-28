@@ -4,14 +4,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 import Utils.HelpMe;
-import data_access.CourseDaoList;
-import data_access.StudentDaoList;
+import data_access.CourseList;
+import data_access.StudentList;
+import data_access.StudentList;
 import models.Course;
 import models.Student;
 
 public class SchoolManagement {
-	private CourseDaoList courseList;
-	private StudentDaoList studentList;
+	private CourseList courseList;
+	private StudentList studentList;
 
 	public SchoolManagement() {
 		super();
@@ -19,8 +20,8 @@ public class SchoolManagement {
 		this.studentList = createStudentListFromDB();
 	}
 
-	private CourseDaoList createCourseListFromDB() {
-		CourseDaoList theList = new CourseDaoList();
+	private CourseList createCourseListFromDB() {
+		CourseList theList = new CourseList();
 		Course c = new Course(0, "Math", LocalDate.now().plusDays(10), 10);
 		theList.saveCourse(c);
 		c = new Course(1, "Swedish", LocalDate.now().plusDays(7), 10);
@@ -28,9 +29,13 @@ public class SchoolManagement {
 		return theList;
 	}
 
-	private StudentDaoList createStudentListFromDB() {
-		StudentDaoList theList = new StudentDaoList();
+	private StudentList createStudentListFromDB() {
+		StudentList theList = new StudentList();
 		Student s = new Student(0, "Lisa", "lisa@home.se", "Hemma");
+		theList.saveStudent(s);
+		s = new Student(1, "Stina", "stina@home.se", "Borta");
+		theList.saveStudent(s);
+		s = new Student(2, "Kalle", "kalle@home.se", "Ute");
 		theList.saveStudent(s);
 		return theList;
 	}

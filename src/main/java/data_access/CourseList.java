@@ -6,9 +6,9 @@ import java.util.List;
 
 import models.Course;
 
-public class CourseDaoList implements CourseDao {
+public class CourseList implements CourseDao {
 
-	private static List<Course> courses;
+	private static List<Course> courses = new ArrayList<>();
 
 	@Override
 	public Course saveCourse(Course course) {

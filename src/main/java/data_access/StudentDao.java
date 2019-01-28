@@ -3,11 +3,6 @@ package data_access;
 import java.util.List;
 
 import models.Student;
-/**
- * 
- * @author Mattias Hansson
- *
- */
 
 public interface StudentDao {
 	
@@ -17,5 +12,6 @@ public interface StudentDao {
 	Student findById(int id);
 	List<Student>findAll();
 	boolean deleteStudent(Student student);
+	
 
 }
