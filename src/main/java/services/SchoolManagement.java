@@ -6,7 +6,6 @@ import java.util.List;
 import Utils.HelpMe;
 import data_access.CourseList;
 import data_access.StudentList;
-import data_access.StudentList;
 import models.Course;
 import models.Student;
 
@@ -22,9 +21,9 @@ public class SchoolManagement {
 
 	private CourseList createCourseListFromDB() {
 		CourseList theList = new CourseList();
-		Course c = new Course(0, "Math", LocalDate.now().plusDays(10), 10);
+		Course c = new Course("Math", LocalDate.now().plusDays(10), 10);
 		theList.saveCourse(c);
-		c = new Course(1, "Swedish", LocalDate.now().plusDays(7), 10);
+		c = new Course("Swedish", LocalDate.now().plusDays(7), 10);
 		theList.saveCourse(c);
 		return theList;
 	}
@@ -70,7 +69,7 @@ public class SchoolManagement {
 			//printStudent(courseList.findByDate(date));
 			break;
 		default:
-			printStudent(studentList.findAll());
+			printCourse(courseList.findAll());
 			break;
 		}
 	}
@@ -86,14 +85,9 @@ public class SchoolManagement {
 		}
 	}
 
-	private void printCourse(Course theCourse) {
-		System.out.println(theCourse);
-
-	}
-
 	private void printCourse(List<Course> theCourses) {
 		for (Course course : theCourses) {
-			System.out.println(theCourses);
+			System.out.println(course);
 		}
 	}
 
@@ -126,7 +120,7 @@ public class SchoolManagement {
 	}
 
 	public void createCourse() {
-		Course theCourse = new Course(0, HelpMe.readStringfromUser("Enter the course name: "),
+		Course theCourse = new Course(HelpMe.readStringfromUser("Enter the course name: "),
 				HelpMe.readDatefromUser("Enter the startdate: "), HelpMe.readIntegerfromUser("Number of weeks: "));
 	}
 

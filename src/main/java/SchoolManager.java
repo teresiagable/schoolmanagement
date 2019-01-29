@@ -74,7 +74,7 @@ private static int printFindCourseAndGetChoice() {
 	System.out.println("------------------");
 	System.out.println("1 Find by id");
 	System.out.println("2 Find by name");
-	System.out.println("3 View all students");
+	System.out.println("3 View all Course");
 	
 	return HelpMe.readIntegerfromUser(null,1,3);
 

@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class Course {
 		
+		private static int sequencer = 1000;
 		private int id;
 		private String courseName;
 		private LocalDate startDate;
@@ -23,9 +24,9 @@ public class Course {
 		 * @param startDate
 		 * @param weekDuration
 		 */
-		public Course(int id, String courseName, LocalDate startDate, int weekDuration) {
+		public Course(String courseName, LocalDate startDate, int weekDuration) {
 			super();
-			this.id = id;
+			this.id = ++sequencer;
 			this.courseName = courseName;
 			this.startDate = startDate;
 			this.weekDuration = weekDuration;
@@ -73,7 +74,7 @@ public class Course {
 				
 		@Override
 		public String toString() {
-			return "\nID:" + this.id + " \tCourse: " + this.courseName + " \tStartDate: " + this.startDate + " \tDuration in Week: " + this.weekDuration;
+			return "ID:" + this.id + " \nCourse: " + this.courseName + " \tStartDate: " + this.startDate + " \tDuration in Week: " + this.weekDuration;
 		}
 		
 		
