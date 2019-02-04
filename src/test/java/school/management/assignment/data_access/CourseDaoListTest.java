@@ -11,11 +11,11 @@ public class CourseDaoListTest {
 	private static final Course testCourse;
 	
 	static {
-		testCourse = new Course(1, "SVE3",null, 10);
+		testCourse = new Course( "SVE3",null, 10);
 		
 		allCourses = new ArrayList<>();
-		allCourses.add(new Course(2,"ENG6",null, 10));
-		allCourses.add(new Course(3,"ENG6",null, 10));
+		allCourses.add(new Course("ENG6",null, 10));
+		allCourses.add(new Course("ENG6",null, 10));
 		
 	}
 

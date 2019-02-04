@@ -2,17 +2,15 @@ package services;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import Utils.HelpMe;
-import data_access.CourseList;
-import data_access.StudentList;
-import data_access.StudentList;
+import data_access.CourseDaoList;
+import data_access.StudentDaoList;
 import models.Course;
 import models.Student;
 
 public class SchoolManagement {
-	private CourseList courseList;
-	private StudentList studentList;
+	private CourseDaoList courseList;
+	private StudentDaoList studentList;
 
 	public SchoolManagement() {
 		super();
@@ -20,22 +18,22 @@ public class SchoolManagement {
 		this.studentList = createStudentListFromDB();
 	}
 
-	private CourseList createCourseListFromDB() {
-		CourseList theList = new CourseList();
-		Course c = new Course(0, "Math", LocalDate.now().plusDays(10), 10);
+	private CourseDaoList createCourseListFromDB() {
+		CourseDaoList theList = new CourseDaoList();
+		Course c = new Course("Math", LocalDate.now().plusDays(10), 10);
 		theList.saveCourse(c);
-		c = new Course(1, "Swedish", LocalDate.now().plusDays(7), 10);
+		c = new Course("Swedish", LocalDate.now().plusDays(7), 10);
 		theList.saveCourse(c);
 		return theList;
 	}
 
-	private StudentList createStudentListFromDB() {
-		StudentList theList = new StudentList();
-		Student s = new Student(0, "Lisa", "lisa@home.se", "Hemma");
+	private StudentDaoList createStudentListFromDB() {
+		StudentDaoList theList = new StudentDaoList();
+		Student s = new Student("Lisa", "lisa@home.se", "Hemma");
 		theList.saveStudent(s);
-		s = new Student(1, "Stina", "stina@home.se", "Borta");
+		s = new Student("Stina", "stina@home.se", "Borta");
 		theList.saveStudent(s);
-		s = new Student(2, "Kalle", "kalle@home.se", "Ute");
+		s = new Student("Kalle", "kalle@home.se", "Ute");
 		theList.saveStudent(s);
 		return theList;
 	}
@@ -100,9 +98,9 @@ public class SchoolManagement {
 	private static int printFindStudentMenuAndGetChoice() {
 
 		System.out.println("------------------");
-		System.out.println("1 Find by id");
-		System.out.println("2 Find by name");
-		System.out.println("3 View all students");
+		System.out.println("1: Find by id");
+		System.out.println("2: Find by name");
+		System.out.println("3: View all students");
 
 		return HelpMe.readIntegerfromUser(null, 1, 3);
 
@@ -111,23 +109,27 @@ public class SchoolManagement {
 	private static int printFindCourseMenuAndGetChoice() {
 
 		System.out.println("------------------");
-		System.out.println("1 Find by name");
-		System.out.println("2 Find by startdate");
-		System.out.println("3 View all courses");
+		System.out.println("1: Find by name");
+		System.out.println("2: Find by startdate");
+		System.out.println("3: View all courses");
 
 		return HelpMe.readIntegerfromUser(null, 1, 3);
 
 	}
 
 	public void createStudent() {
-		Student theStudent = new Student(0, HelpMe.readStringfromUser("Enter the students name: "),
-				HelpMe.readStringfromUser("Email: "), HelpMe.readStringfromUser("Address: "));
+		Student theStudent = new Student(HelpMe.readStringfromUser("Enter the students name: "),
+				HelpMe.readStringfromUser("Email: "), 
+				HelpMe.readStringfromUser("Address: "));
+		studentList.saveStudent(theStudent);
 
 	}
 
 	public void createCourse() {
-		Course theCourse = new Course(0, HelpMe.readStringfromUser("Enter the course name: "),
-				HelpMe.readDatefromUser("Enter the startdate: "), HelpMe.readIntegerfromUser("Number of weeks: "));
+		Course theCourse = new Course(HelpMe.readStringfromUser("Enter the course name: "),
+				HelpMe.readDatefromUser("Enter the startdate: "), 
+				HelpMe.readIntegerfromUser("Number of weeks: "));
+		courseList.saveCourse(theCourse);
 	}
 
 	public void registerStudent() {
@@ -141,8 +143,15 @@ public class SchoolManagement {
 	}
 
 	public void editStudent() {
-		// TODO Auto-generated method stub
-
+		//Predicate<StudentDaoList> exists = x -> x.exists(id)
+		findStudent();
+		int theId = HelpMe.readIntegerfromUser("Enter id of the student");
+		
+		if (studentList.idExists(theId))
+		{
+			System.out.println(studentList.findById(theId));
+			createStudent();
+		}
 	}
 
 	public void editCourse() {

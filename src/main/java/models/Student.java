@@ -2,13 +2,15 @@ package models;
 
 public class Student {
 
+	private static int sequencer = 0;
+
 	private int id;
 	private String name;
 	private String email;
 	private String address;
 
-	public Student(int id, String name, String email, String address) {
-		this.id = id;
+	public Student(String name, String email, String address) {
+		this.id = ++sequencer;
 		this.name = name;
 		this.email = email;
 		this.address = address;
@@ -16,10 +18,6 @@ public class Student {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -48,9 +46,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student "+ " " + id + ": " + name + ", email=" + email + ", address=" + address ;
+		return "Student " + " " + id + ": " + name + ", email=" + email + ", address=" + address;
 	}
-	
-	
 
 }

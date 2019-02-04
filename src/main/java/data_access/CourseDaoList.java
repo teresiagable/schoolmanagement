@@ -6,7 +6,7 @@ import java.util.List;
 
 import models.Course;
 
-public class CourseList implements CourseDao {
+public class CourseDaoList implements CourseDao {
 
 	private static List<Course> courses = new ArrayList<>();
 

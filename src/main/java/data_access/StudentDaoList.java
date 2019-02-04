@@ -6,17 +6,19 @@ import java.util.List;
 import models.Student;
 
 
-public class StudentList implements StudentDao {
+public class StudentDaoList implements StudentDao {
 
 	private static List<Student> students = new ArrayList<>();
-
+	
 	@Override
 	public Student saveStudent(Student student) {
 		students.add(student);
 		return null;
 	}
+	
 
 	@Override
+
 	public Student findByEmail(String email) {
 		for (Student student : students) {
 			if(student.getEmail().equalsIgnoreCase(email)) return student;
@@ -51,7 +53,23 @@ public class StudentList implements StudentDao {
 
 	@Override
 	public boolean deleteStudent(Student student) {
+
 		students.remove(student);
 		return false;
 	}
+	
+	public boolean idExists (int id) 
+	{
+		for (Student student : students) {
+			if(student.getId()==id) return true;
+		}
+		return false;
+	}
+	
+	public int getNumberOfStudents()
+	{
+		return students.size();
+	}
 }
+
+
