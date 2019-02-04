@@ -103,7 +103,10 @@ public class HelpMe {
 		}
 		return returnValue;
 	}
-
+	
+	/**
+	 * @return a string made by all data in the array
+	 */
 	public static String intArrayToString(int[] denominationValues) {
 		// TODO Auto-generated method stub
 		return null;
