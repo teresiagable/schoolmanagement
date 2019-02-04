@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 import Utils.HelpMe;
-import data_access.CourseList;
-import data_access.StudentList;
+import data_access.CourseDaoList;
+import data_access.StudentDaoList;
 import models.Course;
 import models.Student;
 
 public class SchoolManagement {
-	private CourseList courseList;
-	private StudentList studentList;
+	private CourseDaoList courseList;
+	private StudentDaoList studentList;
 
 	public SchoolManagement() {
 		super();
@@ -19,8 +19,8 @@ public class SchoolManagement {
 		this.studentList = createStudentListFromDB();
 	}
 
-	private CourseList createCourseListFromDB() {
-		CourseList theList = new CourseList();
+	private CourseDaoList createCourseListFromDB() {
+		CourseDaoList theList = new CourseDaoList();
 		Course c = new Course("Math", LocalDate.now().plusDays(10), 10);
 		theList.saveCourse(c);
 		c = new Course("Swedish", LocalDate.now().plusDays(7), 10);
@@ -28,13 +28,13 @@ public class SchoolManagement {
 		return theList;
 	}
 
-	private StudentList createStudentListFromDB() {
-		StudentList theList = new StudentList();
-		Student s = new Student(0, "Lisa", "lisa@home.se", "Hemma");
+	private StudentDaoList createStudentListFromDB() {
+		StudentDaoList theList = new StudentDaoList();
+		Student s = new Student("Lisa", "lisa@home.se", "Hemma");
 		theList.saveStudent(s);
-		s = new Student(1, "Stina", "stina@home.se", "Borta");
+		s = new Student("Stina", "stina@home.se", "Borta");
 		theList.saveStudent(s);
-		s = new Student(2, "Kalle", "kalle@home.se", "Ute");
+		s = new Student("Kalle", "kalle@home.se", "Ute");
 		theList.saveStudent(s);
 		return theList;
 	}
@@ -114,7 +114,7 @@ public class SchoolManagement {
 	}
 
 	public void createStudent() {
-		Student theStudent = new Student(0, HelpMe.readStringfromUser("Enter the students name: "),
+		Student theStudent = new Student(HelpMe.readStringfromUser("Enter the students name: "),
 				HelpMe.readStringfromUser("Email: "), HelpMe.readStringfromUser("Address: "));
 
 	}
@@ -122,6 +122,7 @@ public class SchoolManagement {
 	public void createCourse() {
 		Course theCourse = new Course(HelpMe.readStringfromUser("Enter the course name: "),
 				HelpMe.readDatefromUser("Enter the startdate: "), HelpMe.readIntegerfromUser("Number of weeks: "));
+		theCourse.
 	}
 
 	public void registerStudent() {

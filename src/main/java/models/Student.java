@@ -2,7 +2,7 @@ package models;
 
 public class Student {
 
-	private static int sequencer = 0;
+	private static int sequencer = 200;
 
 	private int id;
 	private String name;
