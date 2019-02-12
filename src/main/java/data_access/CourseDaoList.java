@@ -24,7 +24,8 @@ public class CourseDaoList implements CourseDao {
 	@Override
 	public Course findById(int id) {
 		for (Course course : courses) {
-			if(course.getId()==id) return course;
+			if (course.getId() == id)
+				return course;
 		}
 		return null;
 	}
@@ -39,11 +40,13 @@ public class CourseDaoList implements CourseDao {
 		return theCourses;
 	}
 
+
 	@Override
 	public List<Course> findByDate(LocalDate date) {
 		List<Course> theCourses = new ArrayList<>();
 		for (Course course : courses) {
-			if (course.getStartDate().compareTo(date)==0)
+			// show all courses that starts within 3 days from the entered date
+			if (course.getStartDate().equals(date)|| course.getStartDate().isAfter(date) && course.getStartDate().isBefore(date.plusDays(3)))
 				theCourses.add(course);
 		}
 		return theCourses;

@@ -65,8 +65,8 @@ public class SchoolManagement {
 			printCourse(courseList.findByName(name));
 			break;
 		case 2:
-			//String date = HelpMe.readStringfromUser("Enter startdate: ");
-			//printStudent(courseList.findByDate(date));
+			LocalDate date = HelpMe.readDatefromUser("Enter startdate: ");
+			printCourse(courseList.findByDate(date));
 			break;
 		default:
 			printCourse(courseList.findAll());
@@ -116,33 +116,36 @@ public class SchoolManagement {
 	public void createStudent() {
 		Student theStudent = new Student(HelpMe.readStringfromUser("Enter the students name: "),
 				HelpMe.readStringfromUser("Email: "), HelpMe.readStringfromUser("Address: "));
+		studentList.saveStudent(theStudent);
 
 	}
 
 	public void createCourse() {
 		Course theCourse = new Course(HelpMe.readStringfromUser("Enter the course name: "),
 				HelpMe.readDatefromUser("Enter the startdate: "), HelpMe.readIntegerfromUser("Number of weeks: "));
-		theCourse.
+		courseList.saveCourse(theCourse);
 	}
 
 	public void registerStudent() {
-		// TODO Auto-generated method stub
-
+		int course_id = HelpMe.readIntegerfromUser("Enter the id of the course: ");
+		Course theCourse = courseList.findById(course_id);
+		System.out.println(theCourse);
+		int student_id = HelpMe.readIntegerfromUser("Enter the id of the student: ");
+		Student theStudent = studentList.findById(student_id);
+		System.out.println(theStudent);
+		
+		theCourse.register(theStudent);
 	}
 
 	public void unregisterStudent() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void editStudent() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void editCourse() {
-		// TODO Auto-generated method stub
-
+		int course_id = HelpMe.readIntegerfromUser("Enter the id of the course: ");
+		Course theCourse = courseList.findById(course_id);
+		System.out.println(theCourse);
+		int student_id = HelpMe.readIntegerfromUser("Enter the id of the student: ");
+		Student theStudent = studentList.findById(student_id);
+		System.out.println(theStudent);
+		
+		theCourse.unregister(theStudent);
 	}
 
 }

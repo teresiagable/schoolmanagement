@@ -1,6 +1,7 @@
 package Utils;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class HelpMe {
@@ -117,11 +118,14 @@ public class HelpMe {
 			System.out.println(question);
 		String input = scanner.nextLine();
 		return input;
-
 	}
 
-	public static LocalDate readDatefromUser(String string) {
-		return LocalDate.now();
+	public static LocalDate readDatefromUser(String question) {
+		if (question != null)
+			System.out.println(question +"(in format YYYY-MM-DD)");
+		String input = scanner.nextLine();
+		System.out.println(input);
+		LocalDate theDate = LocalDate.parse(input, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		return theDate;
 	}
-
 }

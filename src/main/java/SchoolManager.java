@@ -41,10 +41,10 @@ public class SchoolManager {
 
 		System.out.println("------------------");
 		System.out.println("1. Find students");
-		System.out.println("2. Find Course");
+		System.out.println("2. Find course");
 		System.out.println("3. Create new student");
 		System.out.println("4. Create new course");
-		System.out.println("5. Register students from course");
+		System.out.println("5. Register students to course");
 		System.out.println("6. Unregister students from course");
 
 		return HelpMe.readIntegerfromUser(null, 1, 6);

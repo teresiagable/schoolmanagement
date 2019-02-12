@@ -1,6 +1,7 @@
 package models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class Course {
 	private String courseName;
 	private LocalDate startDate;
 	private int weekDuration;
-	private List<Student> students;
+	private List<Student> students = new ArrayList<Student>();
 
 	/**
 	 * 
@@ -33,12 +34,19 @@ public class Course {
 
 	public void register(Student student) {
 		// only add students once
-		if (!students.contains(student))
-			students.add(student);
+		if (!students.contains(student)) {
+			boolean added = students.add(student);
+
+		if(added) System.out.println(student.getName() +" has been registered to "+ this.getCourseName());
+		}
+		else System.out.println("Student "+ student.getName()+" not found");
 	}
 
 	public void unregister(Student student) {
-		students.remove(student);
+		boolean removed = students.remove(student);	
+	
+		if(removed) System.out.println(student.getName() +" has been unregistered from "+ this.getCourseName());
+		else System.out.println(student.getName() +" was not registered to "+ this.getCourseName());
 	}
 
 	public int getId() {
