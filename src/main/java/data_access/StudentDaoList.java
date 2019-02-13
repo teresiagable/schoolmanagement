@@ -13,12 +13,11 @@ public class StudentDaoList implements StudentDao {
 	@Override
 	public Student saveStudent(Student student) {
 		students.add(student);
-		return null;
+		return student;
 	}
 	
 
 	@Override
-
 	public Student findByEmail(String email) {
 		for (Student student : students) {
 			if(student.getEmail().equalsIgnoreCase(email)) return student;
@@ -69,6 +68,10 @@ public class StudentDaoList implements StudentDao {
 	public int getNumberOfStudents()
 	{
 		return students.size();
+	}
+	
+	public void clear() {
+		students.clear();
 	}
 }
 

@@ -2,7 +2,10 @@ package data_access;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import models.Course;
 
@@ -40,21 +43,24 @@ public class CourseDaoList implements CourseDao {
 		return theCourses;
 	}
 
-
 	@Override
 	public List<Course> findByDate(LocalDate date) {
-		List<Course> theCourses = new ArrayList<>();
-		for (Course course : courses) {
-			// show all courses that starts within 3 days from the entered date
-			if (course.getStartDate().equals(date)|| course.getStartDate().isAfter(date) && course.getStartDate().isBefore(date.plusDays(3)))
-				theCourses.add(course);
-		}
-		return theCourses;
+		
+		Predicate<Course> pEquals = (Course c) -> c.getStartDate().equals(date);
+		Predicate<Course> pAfter = (Course c) -> c.getStartDate().isAfter(date);
+		Predicate<Course> pBefore = (Course c) -> c.getStartDate().isBefore(date.plusMonths(1));
+		Predicate<Course> pBetween	= pAfter.and(pBefore);
+	
+		//return all courses with startdate = date or that starts within one month	
+		//Wow. Lamda did not make this more readable at all  :-D
+		return courses.stream()
+				.filter((Course c) -> pEquals.or(pBetween).test(c))
+				.sorted((Comparator.comparing(Course::getStartDate)))
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<Course> findAll() {
-		// TODO Auto-generated method stub
 		return courses;
 	}
 

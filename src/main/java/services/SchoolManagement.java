@@ -21,21 +21,16 @@ public class SchoolManagement {
 
 	private CourseDaoList createCourseListFromDB() {
 		CourseDaoList theList = new CourseDaoList();
-		Course c = new Course("Math", LocalDate.now().plusDays(10), 10);
-		theList.saveCourse(c);
-		c = new Course("Swedish", LocalDate.now().plusDays(7), 10);
-		theList.saveCourse(c);
+		theList.saveCourse(new Course("Math", LocalDate.now().plusDays(10), 10));
+		theList.saveCourse(new Course("Swedish", LocalDate.now().plusDays(7), 10));
 		return theList;
 	}
 
 	private StudentDaoList createStudentListFromDB() {
 		StudentDaoList theList = new StudentDaoList();
-		Student s = new Student("Lisa", "lisa@home.se", "Hemma");
-		theList.saveStudent(s);
-		s = new Student("Stina", "stina@home.se", "Borta");
-		theList.saveStudent(s);
-		s = new Student("Kalle", "kalle@home.se", "Ute");
-		theList.saveStudent(s);
+		theList.saveStudent(new Student("Lisa", "lisa@home.se", "Hemma"));
+		theList.saveStudent(new Student("Stina", "stina@home.se", "Borta"));
+		theList.saveStudent(new Student("Kalle", "kalle@home.se", "Ute"));
 		return theList;
 	}
 
