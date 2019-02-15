@@ -14,7 +14,7 @@ import org.junit.Test;
 import data_access.StudentDaoList;
 import models.Student;
 
-public class StudenDaoListTest {
+public class StudentDaoListTest {
 
 	private StudentDaoList allStudents = new StudentDaoList();
 	private Student testStudent;
@@ -72,5 +72,5 @@ public class StudenDaoListTest {
 		assertTrue(allStudents.idExists(testStudentId));
 		assertFalse(allStudents.idExists(1));  //id 1 is lower  than sequencer
 	}
-//18 mars
+
 }
